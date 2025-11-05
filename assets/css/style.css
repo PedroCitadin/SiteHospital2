@@ -29,8 +29,36 @@ body {
   margin: 0;
   font-family: var(--font-main);
   color: var(--color-text);
-  background-color: var(--color-bg);
   line-height: 1.5;
+}
+
+/* Fundo padrão para todas as páginas que NÃO são a home */
+body:not(.home) {
+  background-color: var(--color-bg);
+}
+
+body.home {
+  position: relative;
+  background-image: url('../img/bg.jpg'); /* caminho correto */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+body.home .hero-text p {
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+body.home::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.55); /* filtro claro */
+  backdrop-filter: blur(3px) brightness(0.95);
+  z-index: -1;
 }
 
 /* Layout */
@@ -565,4 +593,8 @@ textarea:focus {
   .logo img {
     height: 48px;
   }
+
+
+
+
 }
